@@ -1,4 +1,4 @@
-                                                        # CleanUp
+# CleanUp
 ## Application de Gestion de Collecte des Déchets
 
 > **Projet de Fin d'Études (PFE)**  
