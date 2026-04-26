@@ -3,8 +3,9 @@
 
 > **Projet de Fin d'Études (PFE)**  
 > **Établissement :** École Normale Supérieure – Département Informatique, Marrakech  
-> **Encadrant :** Mohammed Lachgar 
-> **Étudiant :** [Sahmad Fatima-ezzahra]  
+> **Encadrant :** Mohammed Lachgar
+
+> **Étudiant :** Sahmad Fatima-ezzahra  
 > **Année universitaire :** 2025–2026
 
 
