@@ -1,4 +1,4 @@
-# CleanUp
+                                                        # CleanUp
 ## Application de Gestion de Collecte des Déchets
 
 > **Projet de Fin d'Études (PFE)**  
@@ -28,7 +28,7 @@
 13. [Variables d'environnement](#-variables-denvironnement)
 14. [Démonstration vidéo](#-démonstration-vidéo)
 
-## 🌍 Présentation du projet
+##  Présentation du projet
 
 Cette application permet la **gestion intelligente de la collecte des déchets** dans un environnement urbain ou un campus universitaire. Elle couvre l'ensemble du cycle opérationnel : de la planification des tournées à leur suivi en temps réel, en passant par la remontée d'incidents sur le terrain.
 
