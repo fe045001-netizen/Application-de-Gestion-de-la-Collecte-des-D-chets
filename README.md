@@ -665,10 +665,10 @@ La démonstration couvre :
 
 | | |
 |---|---|
-| **Étudiant** | [Sahmad Fatima-ezzahra] |
-| **Email** | [votre.email@ens.ac.ma] |
+| **Étudiant** | Sahmad Fatima-ezzahra |
+| **Email** | f.sahmad6480@uca.ac.ma |
 | **Établissement** | ENS Marrakech – Département Informatique |
-| **Encadrant** | [Mohamed Lachgar] |
+| **Encadrant** | Mohamed Lachgar |
 
 ---
 
