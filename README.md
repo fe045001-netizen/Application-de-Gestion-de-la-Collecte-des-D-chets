@@ -213,21 +213,7 @@ C:\PFE\Mobile\
 
 ---
 
-##  Modèle Conceptuel de Données (MCD)
 
-
-
-**Cardinalités :**
-
-| Relation | Cardinalité |
-|----------|-------------|
-| Route → Points | 1,N (une route a plusieurs points) |
-| Route → Truck | N,1 (plusieurs routes peuvent utiliser un camion) |
-| Route → Logs | 1,N (une route génère plusieurs logs) |
-| Point → Logs | 1,N (un point peut avoir plusieurs passages) |
-| User → Truck | 1,1 (un chauffeur est assigné à un camion) |
-
----
 
 ##  Modèle Logique de Données (MLD)
 
