@@ -51,7 +51,8 @@ Cette application permet la **gestion intelligente de la collecte des déchets**
 ---
 
 ##  Architecture globale
-<img width="352" height="424" alt="Capture d’écran 2026-04-29 173858" src="https://github.com/user-attachments/assets/20cbe9b1-bbbc-4285-8461-40e7d399ae0a" />
+<img width="597" height="389" alt="Capture d’écran 2026-04-29 174336" src="https://github.com/user-attachments/assets/3840911c-46b4-488a-bc46-61d29d59a84e" />
+
 
 
 ---
