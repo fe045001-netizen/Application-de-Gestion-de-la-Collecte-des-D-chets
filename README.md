@@ -51,60 +51,8 @@ Cette application permet la **gestion intelligente de la collecte des déchets**
 ---
 
 ##  Architecture globale
+<img width="352" height="424" alt="Capture d’écran 2026-04-29 173858" src="https://github.com/user-attachments/assets/20cbe9b1-bbbc-4285-8461-40e7d399ae0a" />
 
-```
-┌─────────────────────────────────────────────────────────────────┐
-│                        CLIENT LAYER                             │
-│                                                                 │
-│  ┌──────────────────────┐    ┌───────────────────────────────┐  │
-│  │   Web App (React)    │    │  Mobile App (React Native /   │  │
-│  │   localhost:3000     │    │  Expo)                        │  │
-│  │                      │    │                               │  │
-│  │  - Dashboard         │    │  - Voir tournée               │  │
-│  │  - CRUD Points       │    │  - Marquer collecte           │  │
-│  │  - Gestion Routes    │    │  - Signaler incidents         │  │
-│  │  - Gestion Camions   │    │  - Envoyer position GPS       │  │
-│  │  - Suivi opérationnel│    │                               │  │
-│  └──────────┬───────────┘    └──────────────┬────────────────┘  │
-│             │                               │                   │
-└─────────────┼───────────────────────────────┼───────────────────┘
-              │         HTTP / REST API        │
-              │         (JWT Auth)             │
-              ▼                               ▼
-┌─────────────────────────────────────────────────────────────────┐
-│                      BACKEND LAYER (PHP)                        │
-│                                                                 │
-│  ┌────────────┐  ┌───────────┐  ┌──────────────┐               │
-│  │   Routes   │  │Controllers│  │   Services   │               │
-│  │  api.php   │→ │  Auth     │→ │  AuthService │               │
-│  │            │  │  Point    │  │  LogService  │               │
-│  │            │  │  Route    │  │  PointService│               │
-│  │            │  │  Truck    │  │  RouteService│               │
-│  │            │  │  Log      │  │  TruckService│               │
-│  │            │  │  User     │  │              │               │
-│  └────────────┘  └───────────┘  └──────────────┘               │
-│                                                                 │
-│  ┌──────────────┐  ┌──────────┐  ┌────────────────────────┐    │
-│  │  Middleware  │  │  Models  │  │  Config                │    │
-│  │  AuthMW      │  │  User    │  │  database.php          │    │
-│  │  RoleMW      │  │  Truck   │  │  cors.php              │    │
-│  └──────────────┘  │  Route   │  │  jwt.php               │    │
-│                    │  Point   │  └────────────────────────┘    │
-│                    │  Log     │                                 │
-│                    └──────────┘                                 │
-└─────────────────────────────────────────────────────────────────┘
-              │
-              ▼
-┌─────────────────────────────────────────────────────────────────┐
-│                     DATABASE LAYER (MySQL)                      │
-│                                                                 │
-│   collection_points  ──┐                                        │
-│   trucks              ─┼──► collection_routes                  │
-│   collection_logs  ◄───┘        │                              │
-│                                 ▼                               │
-│                           [Historique]                          │
-└─────────────────────────────────────────────────────────────────┘
-```
 
 ---
 
@@ -266,47 +214,7 @@ C:\PFE\Mobile\
 
 ##  Modèle Conceptuel de Données (MCD)
 
-```
-┌───────────────────┐       ┌──────────────────────────┐
-│       USERS       │       │     COLLECTION_POINTS     │
-├───────────────────┤       ├──────────────────────────┤
-│ id (PK)           │       │ id (PK)                  │
-│ name              │       │ name                     │
-│ email             │       │ latitude                 │
-│ password          │       │ longitude                │
-│ role              │       │ zone                     │
-│ created_at        │       │ type                     │
-└────────┬──────────┘       │ status                   │
-         │                  │ route_id (FK)            │
-         │ assigned_to      └──────────┬───────────────┘
-         │                             │
-         ▼                             │ belongs_to
-┌──────────────────────────┐           │
-│    COLLECTION_ROUTES     │◄──────────┘
-├──────────────────────────┤
-│ id (PK)                  │       ┌──────────────────┐
-│ name                     │       │      TRUCKS      │
-│ truck_id (FK) ───────────┼──────►├──────────────────┤
-│ status                   │       │ id (PK)          │
-│ scheduled_date           │       │ plate_number     │
-│ created_at               │       │ model            │
-└──────────┬───────────────┘       │ status           │
-           │                       │ driver_id (FK)   │
-           │ generates             └──────────────────┘
-           │
-           ▼
-┌──────────────────────────────────┐
-│         COLLECTION_LOGS          │
-├──────────────────────────────────┤
-│ id (PK)                          │
-│ route_id (FK)                    │
-│ point_id (FK)                    │
-│ agent_id (FK)                    │
-│ status (collected/not/problem)   │
-│ note                             │
-│ collected_at                     │
-└──────────────────────────────────┘
-```
+
 
 **Cardinalités :**
 
