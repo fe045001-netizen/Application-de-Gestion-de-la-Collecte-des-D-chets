@@ -2,7 +2,7 @@
 # CleanUp
 ## Application de Gestion de Collecte des Déchets
 
-> **Projet de Fin d'Études (PFE)**  
+
 > **Établissement :** École Normale Supérieure – Département Informatique, Marrakech  
 > **Encadrant :** Mohammed Lachgar  
 > **Étudiant :** Sahmad Fatima-ezzahra  
