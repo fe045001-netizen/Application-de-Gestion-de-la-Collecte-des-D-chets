@@ -213,66 +213,8 @@ C:\PFE\Mobile\
 
 ---
 
-
-
-##  Modèle Logique de Données (MLD)
-
-```sql
-users (
-  id INT PRIMARY KEY AUTO_INCREMENT,
-  name VARCHAR(100) NOT NULL,
-  email VARCHAR(150) UNIQUE NOT NULL,
-  password VARCHAR(255) NOT NULL,
-  role ENUM('admin', 'manager', 'agent') DEFAULT 'agent',
-  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-)
-
-trucks (
-  id INT PRIMARY KEY AUTO_INCREMENT,
-  plate_number VARCHAR(20) UNIQUE NOT NULL,
-  model VARCHAR(100),
-  status ENUM('active', 'maintenance', 'inactive') DEFAULT 'active',
-  driver_id INT,
-  FOREIGN KEY (driver_id) REFERENCES users(id)
-)
-
-collection_routes (
-  id INT PRIMARY KEY AUTO_INCREMENT,
-  name VARCHAR(100) NOT NULL,
-  truck_id INT,
-  status ENUM('pending', 'in_progress', 'completed') DEFAULT 'pending',
-  scheduled_date DATE,
-  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (truck_id) REFERENCES trucks(id)
-)
-
-collection_points (
-  id INT PRIMARY KEY AUTO_INCREMENT,
-  name VARCHAR(100) NOT NULL,
-  latitude DECIMAL(10,8),
-  longitude DECIMAL(11,8),
-  zone VARCHAR(100),
-  type VARCHAR(50),
-  status ENUM('active', 'inactive') DEFAULT 'active',
-  route_id INT,
-  FOREIGN KEY (route_id) REFERENCES collection_routes(id)
-)
-
-collection_logs (
-  id INT PRIMARY KEY AUTO_INCREMENT,
-  route_id INT NOT NULL,
-  point_id INT NOT NULL,
-  agent_id INT NOT NULL,
-  status ENUM('collected', 'not_collected', 'problem') NOT NULL,
-  note TEXT,
-  collected_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (route_id) REFERENCES collection_routes(id),
-  FOREIGN KEY (point_id) REFERENCES collection_points(id),
-  FOREIGN KEY (agent_id) REFERENCES users(id)
-)
-```
-
----
+## Daigramme de classe 
+<img width="991" height="600" alt="Diagramme de classes" src="https://github.com/user-attachments/assets/05cdec3b-17ca-4004-b164-d217fc4c9c8f" />
 
 ##  Description des tables
 
@@ -547,9 +489,14 @@ export const API_BASE_URL = "http://localhost/PFE/Backeend/api";
 ---
 
 ##  Démonstration vidéo
-
+**Partie Web:**
 
 https://github.com/user-attachments/assets/fe543aa2-4157-4ef5-8e76-9ae0b3cb0f92
+
+**Partie Mobile :**
+
+
+https://github.com/user-attachments/assets/11cd4daa-5235-4036-85bb-e25473405458
 
 
 
